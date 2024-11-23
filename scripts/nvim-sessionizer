@@ -1,0 +1,13 @@
+#!/bin/bash
+# Inspired by [tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer)
+# by the legendary ThePrimeagen. fuzzy finds my repos and launches neovim.
+
+if [[ $# -eq 1 ]]; then
+  dir=$1
+else
+  dir=$(find ~/Development ~/.config -mindepth 1 -maxdepth 2 -type d | fzf)
+fi
+
+if [[ -n $dir ]]; then
+  cd "$dir" && nvim
+fi
