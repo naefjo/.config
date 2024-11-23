@@ -1,0 +1,22 @@
+{
+  "Bmatrix": {
+    "prefix": "bmatrix",
+    "body": [
+      "\\begin{bmatrix} $1 \\end{bmatrix} $0"
+    ],
+    "description": "create a matrix"
+  },
+  "Figure": {
+    "prefix": "bfig",
+    "body": [
+      "\\begin{figure}[h]",
+      "\t\\begin{center}",
+      "\t\t\\includegraphics[scale=1]{figures/$1}",
+      "\t\t\\caption{$2}",
+      "\t\t\\label{fig:$3}",
+      "\t\\end{center}",
+      "\\end{figure}$0"
+    ],
+    "description": "Create a figure"
+  }
+}

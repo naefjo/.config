@@ -1,0 +1,2 @@
+- [ ] Add conform config
+- [ ] Fix toggle not working (keymaps.lua) https://github.com/LazyVim/LazyVim/blob/ecfaed3cc1cbe3013f1201594adde2ea0022c455/lua/lazyvim/config/keymaps.lua#L130
