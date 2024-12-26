@@ -6,6 +6,7 @@ return {
         clangd = {
           cmd = { "clangd" },
           mason = false,
+          filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "tpp" },
         },
       },
     },
