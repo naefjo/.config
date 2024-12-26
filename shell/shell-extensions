@@ -1,0 +1,4 @@
+alias ll="eza -lah --git"
+
+export CONFIG_PATH=$HOME/Development/.config
+export PATH=$CONFIG_PATH/scripts:$PATH

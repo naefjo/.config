@@ -1,0 +1,31 @@
+#!/bin/bash
+# Patch and build docker with neovim installed
+echo $0
+
+working_dir=${1:-$PWD}
+
+# Make backup of original dockerfile
+if [ ! -f "$working_dir/Dockerfile" ]; then
+  echo "No Dockerfile found in $working_dir"
+  exit 1
+fi
+
+cp $working_dir/Dockerfile $working_dir/Dockerfile.bak
+
+# Copy nvim installer script to build context
+cp $CONFIG_PATH/docker/install_nvim.sh $working_dir/install_nvim.sh
+
+# Patch Dockerfile to install nvim from installer script
+echo "COPY install_nvim.sh install_nvim.sh" >>Dockerfile
+echo "RUN install_nvim.sh" >>Dockerfile
+
+# Build docker
+if [ -f "working_dir/docker-compose.yaml" ]; then
+  docker compose up
+fi
+
+# patch docker-compose.yaml with config path to local nvim configuration
+
+# Revert Dockerfile & remove installer script
+rm Dockerfile install_nvim.sh
+mv $working_dir/Dockerfile.bak $working_dir/Dockerfile
