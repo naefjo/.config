@@ -57,17 +57,34 @@ end, {
   desc = "Buffer Explorer",
 })
 
--- LazyVim.format.snacks_toggle():map("<leader>ut", {
---   get = function()
---     local is_enabled = #vim.opt.colorcolumn:get()
---     return is_enabled ~= 0
---   end,
---   set = function(state)
---     if state then
---       vim.opt.colorcolumn = "120"
---     else
---       vim.opt.colorcolumn = ""
---     end
---   end,
---   name = "Max Column Hint",
--- })
+-- vim.keymap.set("n", "<leader>td", "<cmd>50vs TODO.md<cr>")
+vim.keymap.set("n", "<leader>t", function()
+  -- Path to TODO.md (assuming it is in the project root)
+  local todo_path = "TODO.md"
+
+  -- Check if the file exists
+  if vim.fn.filereadable(todo_path) ~= 1 then
+    print("TODO.md not found in the project root! Creating it.")
+    local file = io.open("TODO.md", "w")
+    if file then
+      file:close()
+    end
+  end
+
+  -- Check if the buffer for TODO.md is already open
+  local buf = vim.fn.bufnr(todo_path)
+
+  -- If it's already open, toggle the visibility (close the buffer)
+  if vim.fn.bufwinnr(buf) ~= -1 then
+    -- If the buffer is open in a window, close it
+    vim.cmd("w | bd " .. buf)
+  else
+    -- If the buffer is not open in a window, open it again
+    vim.cmd("vsplit")
+    vim.cmd("e " .. todo_path)
+    vim.cmd("wincmd L") -- Move it to the right-hand side
+    vim.api.nvim_win_set_width(0, 50)
+  end
+end, {
+  desc = "Open Todo list",
+})
