@@ -37,8 +37,17 @@ version = 3
       fetch_upstream_icon = true
 
   [[blocks.segments]]
-    template = " {{ .Context }} " 
+    template = " {{ .Major}}.{{ .Minor}} env: {{ .Venv}} "
     foreground = "#09739E"
+    type = "python"
+    style = "plain"
+
+    [blocks.segments.properties]
+      home_enabled = true
+
+  [[blocks.segments]]
+    template = " {{ .Context }} "
+    foreground = "#118C94"
     powerline_symbol = ""
     type = "docker"
     style = "plain"
