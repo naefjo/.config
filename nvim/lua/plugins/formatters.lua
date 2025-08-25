@@ -4,6 +4,7 @@ return {
     opts = function(_, opts)
       table.insert(opts.ensure_installed, "usort")
       table.insert(opts.ensure_installed, "black")
+      table.insert(opts.ensure_installed, "hadolint")
     end,
   },
   {
@@ -22,6 +23,13 @@ return {
     opts = {
       formatters_by_ft = {
         ["python"] = { "usort", "black" },
+        ["dockerfile"] = { "dockerfmt" },
+      },
+      formatters = {
+        dockerfmt = {
+          command = "dockerfmt",
+          stdin = true,
+        },
       },
     },
   },
