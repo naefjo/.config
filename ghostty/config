@@ -2,6 +2,9 @@ theme = everforest
 font-family = "CommitMono Nerd Font"
 font-size = 10
 
+shell-integration=detect
+shell-integration-features=cursor,sudo,title,ssh-env,ssh-terminfo
+
 window-colorspace = display-p3
 
 unfocused-split-opacity = 0.5
@@ -9,7 +12,7 @@ split-divider-color = A7C080
 
 keybind = shift+super+p=goto_split:previous
 keybind = shift+super+¨=goto_split:next
-keybind = shift+super+space=toggle_quick_terminal
+keybind = global:shift+super+space=toggle_quick_terminal
 
 alpha-blending = linear-corrected
 macos-titlebar-style = tabs
