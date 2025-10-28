@@ -6,6 +6,9 @@
 -- vim.api.nvim_set_hl(0, "LineNr", { fg = "white", bold = true })
 -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true })
 
+-- disbale automatic root detection (annoying if workspace contains a lot of different packages)
+vim.g.root_spec = { "cwd" }
+
 vim.opt.scrolloff = 10
 
 vim.opt.colorcolumn = "120"
@@ -13,5 +16,6 @@ vim.opt.colorcolumn = "120"
 vim.filetype.add({
   extension = {
     launch = "xml",
+    urdf = "xml",
   },
 })
