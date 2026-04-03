@@ -1,14 +1,10 @@
 return {
-  --  "nvim-telescope/telescope.nvim",
-  --  opts = {
-  --    defaults = {
-  --      path_display = { "filename_first" },
-  --    },
-  --  },
   "ibhagwan/fzf-lua",
   opts = {
-    files = {
+    -- Global defaults for all pickers (files, grep, lsp, etc.)
+    defaults = {
       formatter = "path.filename_first",
+      -- path_shorten = 5
     },
   },
 }
