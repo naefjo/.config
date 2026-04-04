@@ -19,3 +19,5 @@ vim.filetype.add({
     urdf = "xml",
   },
 })
+
+vim.lsp.enable("ty")
