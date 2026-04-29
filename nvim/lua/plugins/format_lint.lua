@@ -6,6 +6,7 @@ return {
       table.insert(opts.ensure_installed, "ty")
       table.insert(opts.ensure_installed, "hadolint")
       table.insert(opts.ensure_installed, "beautysh")
+      table.insert(opts.ensure_installed, "debugpy")
     end,
   },
   {
